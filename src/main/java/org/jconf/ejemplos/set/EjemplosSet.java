@@ -26,7 +26,7 @@ public class EjemplosSet {
         empleado.setApellido("Jar");
         empleado.setEmail("duke@jconf.org");
         empleado.setSalario(10000.00);
-
+        
         Empleado empleado2 = new Empleado();
         empleado2.setId(2);
         empleado2.setNombre("Foo");
@@ -40,7 +40,7 @@ public class EjemplosSet {
         empleado3.setApellido("Jar");
         empleado3.setEmail("fat-jar@jconf.org");
         empleado3.setSalario(30000.00);
-
+        
         Set<Empleado> empleadoSet = new HashSet();
         empleadoSet.add(empleado);
         empleadoSet.add(empleado3);
