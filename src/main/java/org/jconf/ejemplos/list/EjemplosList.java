@@ -19,6 +19,7 @@ import org.jconf.ejemplos.pojos.Empleado;
 public class EjemplosList {
 
     public void ejemploVector() {
+        System.out.println("INICIO - Ejemplo Vector");
         Album album = new Album();
         album.setTitulo("What's Going On");
         album.setArtista("Marvin Gaye");
@@ -45,7 +46,6 @@ public class EjemplosList {
         System.out.println("Iterando el Vector con for");
         for (int i = 0; i < albumVec.size(); i++) {
             Album alb = albumVec.elementAt(i);
-            System.out.printf("----");
             if (alb != null) {
                 System.out.printf("Album %d: %s%n", i, alb);
                 System.out.printf("Album %d t\u00edtulo: %s%n", i, alb.getTitulo());
@@ -56,9 +56,11 @@ public class EjemplosList {
                 System.out.printf("Elemento en la posici\u00f3n %d es nulo.%n", i);
             }
         }
+        System.out.println("FIN - Ejemplo Vector\n");
     }
 
     public void ejemploStack() {
+        System.out.println("INICIO - Ejemplo Stack");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -97,9 +99,16 @@ public class EjemplosList {
             System.out.println("Empleado ID: " + emp.getId());
         });
         System.out.println("Tama\u00f1o del stack: " + empleadoStack.size());
+        System.out.println("FIN - Ejemplo Stack\n");
     }
 
+    /**
+     * Ejemplo de lista doblemente enlazada. Colecci&oacute;n que permite,
+     * para cada elemento, contar con referencias a sus elementos vecinos,
+     * as&iacute; como el manejo de una estructura de cola.
+     */
     public void ejemploLinkedList() {
+        System.out.println("INICIO - Ejemplo LinkedList");
         Album album = new Album();
         album.setTitulo("What's Going On");
         album.setArtista("Marvin Gaye");
@@ -124,9 +133,15 @@ public class EjemplosList {
         System.out.println(albumLinkedList.peek().getTitulo()); // El mismo album 1
         System.out.println(albumLinkedList.pop().getTitulo()); // Album 1, con operación pop
         System.out.println(albumLinkedList.peek().getTitulo()); // Album 2
+        System.out.println("FIN - Ejemplo LinkedList\n");
     }
 
+    /**
+    * Ejemplo de uso de ArrayList. Orden de iteraci&oacute;n sujeto al orden de inserci&oacute;n.
+    * Se complementa el ejemplo con el uso de Java Streams con filtros y paso hacia lista inmutable.
+    */
     public void ejemploArrayList() {
+        System.out.println("INICIO - Ejemplo ArrayList");
         Album album = new Album();
         album.setTitulo("What's Going On");
         album.setArtista("Marvin Gaye");
@@ -153,7 +168,7 @@ public class EjemplosList {
         /*
         Se recorre lista utilizando Stream
         Se filtran los elementos que no son nulos
-        Los resultados son recolectados a otra lista (notNullAlbums) por medio
+        Los resultados son recolectados a la lista (notNullAlbums) por medio
         de un Collector Collectors.toUnmodifiableList() (Java10+)
         */
         List<Album> notNullAlbums = albumArrayList
@@ -172,11 +187,20 @@ public class EjemplosList {
         album4.setTitulo("Songs in the Key of Life");
         album4.setArtista("Stevie Wonder");
         album4.setAnioLanzamiento(1976);
-        notNullAlbums.add(album4);
+        try {
+            notNullAlbums.add(album4); // Fallará porque la lista notAllAlbums es inmutable
+        } catch (UnsupportedOperationException ex) {
+            System.out.println("Fall\u00f3 porque la lista notNullAlbums es inmutable.");
+            ex.printStackTrace();
+        }
+        System.out.println("FIN - Ejemplo ArrayList\n");
     }
-    
+
     public static void main(String[] args) {
         EjemplosList ejemploList = new EjemplosList();
+        ejemploList.ejemploVector();
+        ejemploList.ejemploStack();
+        ejemploList.ejemploLinkedList();
         ejemploList.ejemploArrayList();
     }
 }

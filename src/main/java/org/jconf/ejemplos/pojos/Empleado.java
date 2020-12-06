@@ -99,12 +99,19 @@ public class Empleado implements Comparable {
         return true;
     }
 
+    /*
+    * Establece un criterio de comparaci&oacute;n basado en el orden lexicogr&aacute;fico
+    * de la cadena concatenada apellido,nombre,id
+    */
     @Override
     public int compareTo(Object o) {
         Empleado other = (Empleado) o;
-        String thisApNom = this.getApellido() + "," + this.getNombre();
-        String otherApNom = other.getApellido() + "," + other.getNombre();
+        String thisApNom = this.getApellido() + "," + this.getNombre() + "," + this.getId();
+        String otherApNom = other.getApellido() + "," + other.getNombre() + "," + other.getId();
         return thisApNom.compareTo(otherApNom);
-        //return Integer.compare(other.getId(), this.getId());
+        /*
+        // Por si deseamos usar el id como criterio de comparaci&oacute;n:
+        return Integer.compare(other.getId(), this.getId());
+        */
     }
 }

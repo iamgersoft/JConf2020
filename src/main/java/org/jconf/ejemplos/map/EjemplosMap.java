@@ -13,11 +13,15 @@ import org.jconf.ejemplos.pojos.Album;
 import org.jconf.ejemplos.pojos.Empleado;
 
 /**
- * @author Gerson P&eacute;rez - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
+ * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
 public class EjemplosMap {
 
+    /**
+    * TreeMap. Mapa con ordenamiento basado en orden natural de sus llaves.
+    */
     public void ejemploTreeMap() {
+        System.out.println("INICIO - ejemploTreeMap");
         Album album = new Album();
         album.setTitulo("What's Going On");
         album.setArtista("Marvin Gaye");
@@ -39,9 +43,14 @@ public class EjemplosMap {
         albumTreeMap.put(1, album2);
 
         System.out.println(albumTreeMap.firstEntry().getKey());
+        System.out.println("FIN - ejemploTreeMap\n");
     }
 
+    /**
+    * HashTable. Mapa thread-safe. No acepta llaves ni valores nulos.
+    */
     public void ejemploHashTable() {
+        System.out.println("INICIO - ejemploHashTable");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -69,9 +78,16 @@ public class EjemplosMap {
         albumHashTable.put("Marzo", empleado3);
 
         System.out.println(albumHashTable.keySet());
+        System.out.println("FIN - ejemploHashTable\n");
     }
 
+    /**
+    * Ejemplo de LinkedHashMap. Estructura llave/valor cuyo orden de iteraci&oacute;n
+    * corresponde con el orden de inserci&oacute;n, basado en una estructura
+    * de lista doblemente enlazada.
+    */
     public void ejemploLinkedHashMap() {
+        System.out.println("INICIO - ejemploLinkedHashMap");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -99,9 +115,16 @@ public class EjemplosMap {
         albumLinkedHashMap.put("Marzo", empleado3);
 
         System.out.println(albumLinkedHashMap.keySet());
+        System.out.println("FIN - ejemploLinkedHashMap\n");
     }
 
+    /**
+    * Ejemplo de HashMap. Estructura llave/valor cuyo orden de iteraci&oacute;n
+    * puede no corresponder con el orden de inserci&oacute;n (en su lugar,
+    * el ordenamiento est&aacute; sujeto en el hash calculado para la llave).
+    */
     public void ejemploHashMap() {
+        System.out.println("INICIO - ejemploHashMap");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -129,24 +152,28 @@ public class EjemplosMap {
         albumHashMap.put("Febrero", empleado2);
 
         System.out.println(albumHashMap.keySet());
+        System.out.println("FIN - ejemploHashMap\n");
     }
     
     /**
      * Ejemplo de mapa mutable
      */
-    public void mutableMap() {
+    public void ejemploMutableMap() {
+        System.out.println("INICIO - ejemploMutableMap");
         Map<String, String> myMap = new HashMap();
         myMap.put("foo", "bar");
         myMap.put("duke", "rocks");
         System.out.println("Mapa: " + myMap);
         myMap.put("jconf", "2020");
         System.out.println("Mapa: " + myMap);
+        System.out.println("FIN - ejemploMutableMap\n");
     }
 
     /**
      * Ejemplo de mapa inmutable con Java 7+
      */
-    public void immutableMap() {
+    public void ejemploImmutableMap() {
+        System.out.println("INICIO - ejemploImmutableMap");
         // Creación del HashMap myMap
         Map<String, String> myMap = new HashMap();
         myMap.put("foo", "bar");
@@ -162,26 +189,45 @@ public class EjemplosMap {
         myMap.put("jconf", "2020"); // foo, duke, jconf
 
         System.out.println("myImmutableMap: " + myImmutableMap); // foo, duke, jconf (myImmutableMap es una "vista inmutable" de myMap)
-        myImmutableMap.put("Guatemala", "502"); // Fallará porque myImmutableMap es inmutable.
-        System.out.println("myImmutableMap: " + myImmutableMap);
+        try {
+            System.out.println("myImmutableMap: " + myImmutableMap);
+            myImmutableMap.put("Guatemala", "502"); // Fallará porque myImmutableMap es inmutable.
+        } catch (UnsupportedOperationException ex) {
+            System.out.println("Fall\u00f3 porque myImmutableMap es inmutable.");
+            ex.printStackTrace();
+        }
+        System.out.println("FIN - ejemploImmutableMap\n");
     }
 
     /**
      * Ejemplo de mapa inmutable con Java 9+
      */
-    public void immutableMapStaticOf() {
+    public void ejemploImmutableMapStaticOf() {
+        System.out.println("INICIO - ejemploImmutableMapStaticOf");
         Map<String, String> myImmutableMap = Map.of(
                 "foo", "bar",
                 "duke", "rocks",
                 "jconf", "2020"
         );
         System.out.println("Mapa: " + myImmutableMap);
-        myImmutableMap.put("Guatemala", "502"); // Fallará porque myImmutableMap es inmutable.
-        System.out.println("Mapa: " + myImmutableMap);
+        try {
+            System.out.println("myImmutableMap: " + myImmutableMap);
+            myImmutableMap.put("Guatemala", "502"); // Fallará porque myImmutableMap es inmutable.
+        } catch (UnsupportedOperationException ex) {
+            System.out.println("Fall\u00f3 porque myImmutableMap es inmutable.");
+            ex.printStackTrace();
+        }
+        System.out.println("FIN - ejemploImmutableMapStaticOf\n");
     }
 
     public static void main(String[] args) {
         EjemplosMap ejemplos = new EjemplosMap();
         ejemplos.ejemploHashMap();
+        ejemplos.ejemploHashTable();
+        ejemplos.ejemploLinkedHashMap();
+        ejemplos.ejemploTreeMap();
+        ejemplos.ejemploHashMap();
+        ejemplos.ejemploImmutableMap();
+        ejemplos.ejemploImmutableMapStaticOf();
     }
 }

@@ -20,20 +20,34 @@ import org.jconf.ejemplos.pojos.Empleado;
 
 /**
  *
- * @author Gerson P&eacute;rez - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
+ * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
 public class EjemplosCollections {
 
+    /**
+    * Ejemplo b&aacute;sico de lista vac&iacute;a.
+    */
     public void ejemploEmptyList() {
+        System.out.println("INICIO - ejemploEmptyList");
         List miLista = Collections.emptyList();
         /*
         // Que también se puede declarar como
-        List miLista = Collections.emptyList();
+        List miLista = Collections.EMPTY_LIST;
         */
-        miLista.add("uno"); //Fallará porque la lista es inmutable y vacía.
+        try {
+            miLista.add("uno"); //Fallará porque la lista es inmutable y vacía.
+        } catch (UnsupportedOperationException ex) {
+            System.out.println("Fall\u00f3 porque la lista es inmutable y vac\u00eda.");
+            ex.printStackTrace();
+        }
+        System.out.println("FIN - ejemploEmptyList\n");
     }
 
-    public void ejemploPrueba() {
+    /**
+    * Ejemplo b&aacute;sico de paso de Array hacia Vector.
+    */
+    public void ejemploArrayListToVector() {
+        System.out.println("INICIO - ejemploArrayListToVector");
         List miLista = new java.util.ArrayList();
         miLista.add("uno");
         miLista.add("dos");
@@ -50,9 +64,14 @@ public class EjemplosCollections {
         System.out.println("Elemento 1: " + vec.get(1));
         System.out.println("Elemento 1: " + vec.elementAt(1));
         System.out.println("miLista: " + vec);
+        System.out.println("FIN - ejemploArrayListToVector\n");
     }
 
-    public void ejemploPrueba2() {
+    /**
+     * Ejemplo b&aacute;sico de Stack con elementos de tipo String.
+    */
+    public void ejemploStack() {
+        System.out.println("INICIO - ejemploStack");
         Stack<String> stack = new Stack();
         stack.add(null);
         stack.add("uno");
@@ -62,18 +81,29 @@ public class EjemplosCollections {
         System.out.println("STACK1: " + stack.pop());
         System.out.println("STACK2: " + stack.pop());
         stack.stream().forEach(System.out::println);
+        System.out.println("FIN - ejemploStack\n");
     }
 
-    public void ejemploPrueba3() {
+    /*
+    * Ejemplo b&aacute;sico de LinkedHashSet con 1000 elementos e0 a e9999,
+    */
+    public void ejemploLinkedHashSet() {
+        System.out.println("INICIO - ejemploLinkedHashSet");
         Set<String> miSet = new LinkedHashSet();
         for (int i = 0; i < 1_000; i++) {
             miSet.add(String.format("e%d", i));
         }
         String s = "abc";
         System.out.println("miset " + miSet);
+        System.out.println("FIN - ejemploLinkedHashSet");
     }
 
-    public void ejemploPrueba4() {
+    /**
+     * Ejemplo b&aacute;sico de HashSet con verificaci&oacute;n del hash code
+     * para cada elemento de la colecci&oacute;n.
+     */
+    public void ejemploHashSet() {
+        System.out.println("INICIO - ejemploHashSet");
         Set<Empleado> miSet = new HashSet();
 
         Empleado empleado1 = new Empleado();
@@ -100,19 +130,29 @@ public class EjemplosCollections {
         miSet.add(empleado2);
 
         System.out.println("miSet: " + miSet);
+        System.out.println("FIN - ejemploHashSet\n");
     }
-    
-    public void ejemploPrueba5() {
-        //Queue miQueue = new PriorityQueue();
+
+    /**
+     * Ejemplo b&aacute;sico de cola doblemente enlazada (LinkedList).
+     */
+    public void ejemploLinkedList() {
+        System.out.println("INICIO - ejemploLinkedList");
         Queue miQueue = new LinkedList();
         miQueue.add("uno");
         miQueue.add("dos");
         miQueue.add("tres");
         System.out.println("miqueue: " + miQueue);
+        System.out.println("FIN - ejemploLinkedList\n");
     }
 
     public static void main(String[] args) {
         EjemplosCollections ejemplosCollections = new EjemplosCollections();
-        ejemplosCollections.ejemploPrueba5();
+        ejemplosCollections.ejemploArrayListToVector();
+        ejemplosCollections.ejemploEmptyList();
+        ejemplosCollections.ejemploHashSet();
+        ejemplosCollections.ejemploLinkedHashSet();
+        ejemplosCollections.ejemploLinkedList();
+        ejemplosCollections.ejemploStack();
     }
 }

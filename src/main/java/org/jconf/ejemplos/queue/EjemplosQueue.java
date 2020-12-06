@@ -14,7 +14,12 @@ import org.jconf.ejemplos.pojos.Empleado;
  */
 public class EjemplosQueue {
 
+    /**
+     * Ejemplo de cola de prioridad. Prioridad basada en la implementaci&oacute;n
+     * de la interfaz Comparable (m&eacute;todo compareTo()) en la clase Empleado.
+     */
     public void ejemploPriorityQueue() {
+        System.out.println("INICIO - ejemploPriorityQueue");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -48,9 +53,11 @@ public class EjemplosQueue {
             System.out.println(emp.getNombre());
             System.out.println();
         }
+        System.out.println("FIN - ejemploPriorityQueue\n");
     }
 
-    public void ejemplosArrayDeque() {
+    public void ejemploArrayDeque() {
+        System.out.println("INICIO - ejemploArrayDeque");
         Album album = new Album();
         album.setTitulo("What's Going On");
         album.setArtista("Marvin Gaye");
@@ -78,10 +85,12 @@ public class EjemplosQueue {
             System.out.println(alb.getAnioLanzamiento());
             System.out.println();
         }
+        System.out.println("FIN - ejemploArrayDeque\n");
     }
     
     public static void main(String[] args) {
         EjemplosQueue ejemplosQueue = new EjemplosQueue();
-        ejemplosQueue.ejemplosArrayDeque();
+        ejemplosQueue.ejemploPriorityQueue();
+        ejemplosQueue.ejemploArrayDeque();
     }
 }

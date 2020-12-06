@@ -16,10 +16,11 @@ import org.jconf.ejemplos.pojos.Empleado;
  */
 public class EjemplosSet {
 
-    /*
-    * HashSet. No mantiene el orden de inserci&oacute;n.
+    /**
+    * HashSet. Al iterar, no se garantiza el orden de inserci&oacute;n.
     */
     public void ejemploHashSet() {
+        System.out.println("INICIO - ejemploHashSet");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -59,12 +60,15 @@ public class EjemplosSet {
             System.out.println("Empleado hashCode(): " + emp.hashCode());
         }
         System.out.println("----");
+        System.out.println("FIN - ejemploHashSet\n");
     }
 
-    /*
-    * LinkedHashSet. Mantiene el orden de inserci&oacute;n.
+    /**
+    * LinkedHashSet. Al iterar, se garantiza el orden de inserci&oacute;n al
+    * basar su estructura en la de una lista doblemente enlazada
     */
     public void ejemploLinkedHashSet() {
+        System.out.println("INICIO - ejemploLinkedHashSet");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -101,12 +105,15 @@ public class EjemplosSet {
             System.out.println("Empleado hashCode(): " + emp.hashCode());
         }
        System.out.println("----");
+       System.out.println("FIN - ejemploLinkedHashSet\n");
     }
 
-    /*
-    * TreeSet. Orden natural de los objetos.
+    /**
+    * TreeSet. Orden natural de los objetos, establecido por la implementaci&oacute;n
+    * de la interfaz Comparable.
     */
     public void ejemploTreeSet() {
+        System.out.println("INICIO - ejemploTreeSet");
         Empleado empleado = new Empleado();
         empleado.setId(1);
         empleado.setNombre("Duke");
@@ -144,10 +151,13 @@ public class EjemplosSet {
             System.out.println("Empleado salario: " + emp.getSalario());
             System.out.println("Empleado hashCode(): " + emp.hashCode());
         });
+        System.out.println("FIN - ejemploTreeSet\n");
     }
 
     public static void main(String[] args) {
         EjemplosSet ejemploSet = new EjemplosSet();
+        ejemploSet.ejemploHashSet();
+        ejemploSet.ejemploLinkedHashSet();
         ejemploSet.ejemploTreeSet();
     }
 }

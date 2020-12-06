@@ -15,7 +15,7 @@ import org.jconf.ejemplos.pojos.Empleado;
  * objetos cuyos datos son id&eacute;nticos.
  * Junto con equals(), se sugiere sobrescribir el m&eacute;todo hashCode() mediante el
  * c&aacute;lculo de un valor hash a partir de los datos contenidos en el objeto.</p>
- * @author Gerson P&eacute;rez - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
+ * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
 public class EjemploEquals {
 
