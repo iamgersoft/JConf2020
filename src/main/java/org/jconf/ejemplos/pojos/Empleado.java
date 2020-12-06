@@ -10,7 +10,7 @@ import java.util.Objects;
  * Clase POJO (Plan Old Java Object) para guardar datos de empleados.
  * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
-// public class Empleado implements Comparable<Empleado> { // compareTo(Object other)
+// public class Empleado implements Comparable { // compareTo(Object other)
 public class Empleado implements Comparable<Empleado> { // compareTo(Empleado other)
     /*
     Se puede definir el mismo tipo Empleado en Comparable, para que la firma del metodo compareTo
