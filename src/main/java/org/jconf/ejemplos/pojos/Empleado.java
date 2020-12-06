@@ -5,7 +5,6 @@ package org.jconf.ejemplos.pojos;
 
 import java.util.Objects;
 
-
 /**
  * Clase POJO (Plan Old Java Object) para guardar datos de empleados.
  * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
@@ -105,8 +104,7 @@ public class Empleado implements Comparable<Empleado> { // compareTo(Empleado ot
 
     /*
     * Establece un criterio de comparaci&oacute;n entre dos objetos Empleado,
-    * basado en el orden lexicogr&aacute;fico
-    * de la cadena concatenada apellido,nombre,id
+    * basado en el orden lexicogr&aacute;fico de la cadena concatenada apellido,nombre,id
     */
     @Override
     // public int compareTo(Object other) {
