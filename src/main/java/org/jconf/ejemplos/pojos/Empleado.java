@@ -8,10 +8,14 @@ import java.util.Objects;
 
 /**
  * Clase POJO (Plan Old Java Object) para guardar datos de empleados.
- * @author Gerson P&eacute;rez - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
+ * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
-public class Empleado implements Comparable {
-
+// public class Empleado implements Comparable<Empleado> { // compareTo(Object other)
+public class Empleado implements Comparable<Empleado> { // compareTo(Empleado other)
+    /*
+    Se puede definir el mismo tipo Empleado en Comparable, para que la firma del metodo compareTo
+    sea otro objeto del mismo tipo, con lo que ya no aplica hacer cast.
+    */
     private int id;
     private String nombre;
     private String apellido;
@@ -100,12 +104,14 @@ public class Empleado implements Comparable {
     }
 
     /*
-    * Establece un criterio de comparaci&oacute;n basado en el orden lexicogr&aacute;fico
+    * Establece un criterio de comparaci&oacute;n entre dos objetos Empleado,
+    * basado en el orden lexicogr&aacute;fico
     * de la cadena concatenada apellido,nombre,id
     */
     @Override
-    public int compareTo(Object o) {
-        Empleado other = (Empleado) o;
+    // public int compareTo(Object other) {
+    public int compareTo(Empleado other) {
+        // Empleado other = (Empleado) o; // por si no definimos el tipo de dato en "implements Comparable" hacemos cast de Object other.
         String thisApNom = this.getApellido() + "," + this.getNombre() + "," + this.getId();
         String otherApNom = other.getApellido() + "," + other.getNombre() + "," + other.getId();
         return thisApNom.compareTo(otherApNom);

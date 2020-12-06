@@ -11,8 +11,8 @@ import java.util.TreeSet;
 import org.jconf.ejemplos.pojos.Empleado;
 
 /**
- *
- * @author Gerson P&eacute;rez - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
+ * Ejemplos utilizando las implementaciones de Set de Java Collections Framework.
+ * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
 public class EjemplosSet {
 

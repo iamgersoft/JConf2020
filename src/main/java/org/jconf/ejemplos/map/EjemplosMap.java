@@ -13,6 +13,7 @@ import org.jconf.ejemplos.pojos.Album;
 import org.jconf.ejemplos.pojos.Empleado;
 
 /**
+ * Ejemplos utilizando las implementaciones de Map de Java Collections Framework.
  * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
 public class EjemplosMap {

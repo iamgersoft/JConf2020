@@ -5,7 +5,7 @@ package org.jconf.ejemplos.pojos;
 
 /**
  * Clase POJO (Plan Old Java Object) para guardar datos de albumes.
- * @author Gerson P&eacute;rez - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
+ * @author Gerson P&eacute;rez Ortega - <a href="https://twitter.com/iamgersoft">@iamgersoft</a>
  */
 public class Album {
 
